@@ -1,0 +1,27 @@
+body
+{
+    background-color: rgb(0, 0, 0);
+    margin: 2;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.wrapper 
+{
+    display:inline-block;
+    border: solid white 2px;
+    border-radius: 10px;
+}
+
+.logo
+{
+    padding: 20px;
+    display: inline-block;
+    width: 90px;
+    vertical-align: middle;
+}
+
+.searchBar
+{
+    display: inline-block;
+    
+}
