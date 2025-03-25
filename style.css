@@ -8,7 +8,12 @@ body
 .wrapper 
 {
     display:inline-block;
-    border: solid white 2px;
+}
+
+.child
+{
+    background-color: rgb(10, 64, 72);
+    align-content: center;
     border-radius: 10px;
 }
 
@@ -24,4 +29,12 @@ body
 {
     display: inline-block;
     
+}
+.gap-2 {
+    gap: .5rem;
+}
+
+a
+{
+    color: rgba(255, 255, 255, 0.8)
 }
