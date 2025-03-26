@@ -10,7 +10,7 @@ body
     display:inline-block;
 }
 
-.child
+.child 
 {
     background-color: rgb(10, 64, 72);
     align-content: center;
@@ -27,13 +27,20 @@ body
 
 .searchBar
 {
-    display: inline-block;
-    
+    display: inline-flex;
+    width: 90%;    
 }
 .gap-2 {
     gap: .5rem;
 }
-
+.inline-block
+{
+    display: inline-block;
+}
+.vertical-align
+{
+    
+}
 a
 {
     color: rgba(255, 255, 255, 0.8)
