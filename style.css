@@ -1,47 +1,141 @@
 body
 {
-    background-color: rgb(0, 0, 0);
-    margin: 2;
-    font-family: 'Courier New', Courier, monospace;
+    margin: 15px;
+    background-color: #070707;
+    color:white;
+    font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
 }
-
-.wrapper 
+p, strong
 {
-    display:inline-block;
+    font-size: 16px;
+    max-width: 150ch;
+    text-align: center;
+    color:white;
+  
 }
-
-.child 
+a
 {
-    background-color: rgb(10, 64, 72);
-    align-content: center;
-    border-radius: 10px;
+    text-decoration: none;
+    color: rgb(181, 195, 198);
 }
 
 .logo
 {
-    padding: 20px;
-    display: inline-block;
-    width: 90px;
-    vertical-align: middle;
+    width: 12ch;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    
 }
 
 .searchBar
 {
-    display: inline-flex;
-    width: 90%;    
-}
-.gap-2 {
-    gap: .5rem;
-}
-.inline-block
-{
-    display: inline-block;
-}
-.vertical-align
-{
+    color: white;
+    width: 65ch;
+    height: 35px;
     
+    border-radius: 10px;
+    border: 0px;
+    background: url(images/blur.png) 0% 0%;
 }
-a
+.searchBar::placeholder
 {
-    color: rgba(255, 255, 255, 0.8)
+    color: rgb(109, 124, 133);
+    font-size: medium;
+}
+
+.headerstyle
+{
+    height: 35px;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid rgb(9, 52, 59);
+    border-radius: 10px;
+    background: url(images/blur.png) 0% 0%;
+}
+
+.image-text-group
+{
+    display: flex;
+    font-size: 16px;
+}
+
+.image-text-group > a {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    flex: 1;     
+    padding: 0 10px; /* Добавляем внутренние отступы слева и справа */
+   
+}
+
+.image-text-group a > img {
+    width: 30px; 
+    height: 35px;
+     
+}
+.image-text-group > a:hover
+{
+    border-radius: 5px;
+    transition: 0.15s;     
+    opacity: 90%;
+    background-color: rgb(32, 72, 79);
+}
+
+.replay-service
+{
+    margin-top: 20px;
+    width: 150ch;
+
+    text-align: center;
+    justify-self: center;
+    
+    background-image: linear-gradient(rgb(8, 34, 53),  rgb(7, 28, 40));
+    border: 1px solid rgb(32, 49, 57);
+    border-radius: 10px;
+}
+
+.how-it-works
+{
+    margin-top: 25px;
+    width: 145ch;
+    
+    justify-content: center;
+    justify-self: center;
+    
+    background-image: linear-gradient(rgb(6, 23, 34), rgb(6, 20, 28));
+    border: 1px solid rgb(31, 47, 56);
+    border-radius: inherit;
+}
+
+
+.replay-service>span
+{
+    font-size: 36px;
+    font-weight: bold;
+}
+.replay-text
+{
+    margin-top: 20px;
+    height: 60px;
+    width: 14ch;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(23, 72, 87);
+    border-radius: 5px;
+    color: rgb(53, 199, 227);
+}
+
+.gray-text
+{
+    color: rgb(153, 163, 170);
+}
+
+.number
+{
+    width: 50px;
+    border-color: rgb(23, 72, 87);
+    border-radius: 50%;
 }
