@@ -1,0 +1,119 @@
+/*gaps and other functional things*/
+.gap-1
+{
+    gap: 1rem;
+}
+.gap-2
+{
+    gap: 2rem;
+}
+.gap-05{
+    gap: 0.5rem
+}
+.relative
+{
+    position: relative;
+}
+
+/*display propreties*/
+.flex
+{
+    display: flex;
+}
+.flex>*/*debug purpose*/
+{
+    outline: 1px dotted lime;
+}
+.image-text-group>*/*debug purpose*/
+{
+    outline: 1px dotted lime;
+}
+.block>*
+{
+    outline: 1px dotted lime;
+}
+.grid>*
+{
+    outline: 1px dotted lime;
+}
+.inline-block>*
+{
+    outline: 1px dotted lime;
+}
+.inline-block
+{
+    display: inline-block;
+}
+.inline-flex
+{
+    display: inline-flex;
+}
+.block
+{
+    display:block;
+}
+.grid
+{
+    display: grid;
+}
+/*flex related stuf*/
+.flex-col
+{
+    flex-direction: column;
+}
+.flex-row
+{
+    flex-direction: row;
+}
+.flex-grow
+{
+    flex-grow: 1;
+}
+.no-flex-grow
+{
+    flex-grow: 0;
+}
+.flex-shrink
+{
+    flex-shrink: 1;
+}
+.no-flex-shrink
+{
+    flex-shrink: 0;
+}
+
+/*content aligning */
+.justify-start
+{
+    justify-content: start;
+}
+.justify-center
+{
+    justify-content: center;
+}
+.justify-space-between
+{
+    justify-content: space-between;
+}
+.justify-space-evenly
+{
+    justify-content: space-evenly;
+}
+.justify-end
+{
+    justify-content: end;
+}
+
+/*Item aligns */
+.items-start
+{
+    align-items: start;
+}
+.items-center
+{
+    align-items: center;
+}
+.items-end
+{
+    align-items:end;
+}

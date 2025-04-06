@@ -1,6 +1,95 @@
-.topContainer
+.flex
 {
     display: flex;
+}
+
+.gap-1
+{
+    gap: 1rem;
+}
+
+.gap-2
+{
+    gap: 2rem;
+}
+
+.inline-block
+{
+    display: inline-block;
+}
+
+.flex-row
+{
+    flex-direction: row;
+}
+
+.space-between
+{
     justify-content: space-between;
-   
+}
+
+.self-start
+{
+    justify-self: flex-start;
+}
+
+.relative
+{
+    position: relative;
+}
+
+
+.justify-start
+{
+    justify-content: start;
+}
+
+.justify-center
+{
+    justify-content: center;
+}
+
+.items-center
+{
+    align-items: center;
+}
+
+.items-end
+{
+    align-items:end;
+}
+
+
+.flex-col-reverse
+{
+    flex-direction: column-reverse;
+}
+
+.flex-end
+{
+    justify-content: flex-end;
+}   
+
+.flex-grow
+{
+    flex-grow: 1;
+}
+
+.flex-col
+{
+
+    flex-direction: column;
+}
+
+.flex>*
+{
+    outline: 1px dotted lime;
+}
+.temp
+{
+    font-family: 'Courier New', Courier, monospace;
+}
+.temp > a
+{
+    flex-grow: 1;
 }
