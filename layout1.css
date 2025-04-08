@@ -28,6 +28,10 @@
 {
     outline: 1px dotted lime;
 }
+.size
+{
+    height: 32px;
+}
 .block>*
 {
     outline: 1px dotted lime;
@@ -81,7 +85,14 @@
 {
     flex-shrink: 0;
 }
-
+.flex-wrap
+{
+    flex-wrap: wrap;
+}
+.no-flex-wrap
+{
+    flex-wrap: nowrap;
+}
 /*content aligning */
 .justify-start
 {

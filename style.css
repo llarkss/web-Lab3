@@ -1,17 +1,15 @@
 body
 {
-    margin: 15px;
+    margin: 0.5rem 0.5rem;
     background-color: #070707;
     color:white;
     font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+    font-size: 1rem;
 }
-p, strong
+p .gray-text
 {
-    font-size: 16px;
-    max-width: 150ch;
+    width: 150vw;
     text-align: center;
-    color:white;
-  
 }
 a
 {
@@ -19,63 +17,56 @@ a
     color: rgb(181, 195, 198);
 }
 
+.headerstyle
+{
+    height: 4.5vh;
+    padding-inline: 1vw;
+    padding-block: 0.5rem;
+    border: 2px solid rgb(9, 52, 59);
+    border-radius: 10px;
+    background: url(images/blur.png) 0% 0%;
+}
 .logo
 {
-    width: 12ch;
+    width: 6rem;
     display: flex;
     align-items: center;
-    padding-left: 20px;
-    
 }
 
 .searchBar
 {
-    color: white;
-    width: 65ch;
-    height: 35px;
-    
+    width: clamp(250px, 30vw, 500px);
+    height: clamp(1rem, 2.8rem, 4rem);
+
     border-radius: 10px;
     border: 0px;
     background: url(images/blur.png) 0% 0%;
 }
 .searchBar::placeholder
 {
-    color: rgb(109, 124, 133);
-    font-size: medium;
-}
-
-.headerstyle
-{
-    height: 35px;
-    padding: 10px 10px 10px 10px;
-    border: 1px solid rgb(9, 52, 59);
-    border-radius: 10px;
-    background: url(images/blur.png) 0% 0%;
+    color: rgb(148, 155, 167);
+    font-size: 1rem;
 }
 
 .image-text-group
 {
     display: flex;
-    font-size: 16px;
 }
 
 .image-text-group > a {
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: space-evenly; 
+    
     flex: 1;     
-    padding: 0 10px; /* Добавляем внутренние отступы слева и справа */
-   
 }
 
 .image-text-group a > img {
-    width: 30px; 
-    height: 35px;
-     
+    width: 2.5rem; 
 }
 .image-text-group > a:hover
 {
-    border-radius: 5px;
+    border-radius: 10px;
     transition: 0.15s;     
     opacity: 90%;
     background-color: rgb(32, 72, 79);
@@ -83,8 +74,8 @@ a
 
 .replay-service
 {
-    margin-top: 20px;
-    width: 150ch;
+    margin-top: 3vh;
+    width: 65vw;
 
     text-align: center;
     justify-self: center;
@@ -97,7 +88,7 @@ a
 .how-it-works
 {
     margin-top: 25px;
-    width: 145ch;
+    width: 63vw;
     
     justify-content: center;
     justify-self: center;
@@ -110,13 +101,13 @@ a
 
 .replay-service>span
 {
-    font-size: 36px;
+    font-size: 2rem;
     font-weight: bold;
 }
 .replay-text
 {
-    margin-top: 20px;
-    height: 60px;
+    margin-top: 2vh;
+    height: 3.5rem;
     width: 14ch;
 
     display: inline-flex;
@@ -135,7 +126,18 @@ a
 
 .number
 {
-    width: 50px;
-    border-color: rgb(23, 72, 87);
+    margin-block: 2vh;
+    margin-inline: 2vw;
+    
+    font-size: 1.5rem;
+    width:  3rem;
+    height: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    color: rgb(53, 199, 227);
+    background-color:rgb(23, 72, 87) ;
     border-radius: 50%;
 }
