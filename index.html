@@ -26,7 +26,7 @@
         </div>
 
         <div class="headerstyle flex-grow">
-            <div class="image-text-group gap-1">
+            <div class="image-text-group gap-1 ">
                 <a href="">
                     <img src="images/home.svg" alt="home">
                     Home
@@ -62,19 +62,19 @@
                     Watch
                 </a>
                 
-                <div class="flex">
+                <div class="">
                     <a class="" href="">
                         <img src="images/Discord2.svg" alt="home">              
                     </a>
                 </div>
 
-                <div class="flex">
+                <div class="">
                     <a class="" href="">
                         <img src="images/Twitter2.svg" alt="home">          
                     </a>
                 </div>
 
-                <div class="flex">
+                <div class="">
                     <a class="" href="">
                         <img src="images/StratzLogo2.svg" alt="home">        
                     </a>
@@ -97,45 +97,77 @@
             <div class="how-it-works">
                 <h3>How It Works</h3>
 
-                <div class="flex flex-grow flex-row">
-                    <div class="flex flex-col">
-                        <span class="number">
-                            1
-                        </span>
+                <div class="flex flex-grow flex-row justify-space-evenly">
+                    <div class="flex flex-col items-center">
+                        <span class="number"> 1 </span>
                         
-                        <img class="size" src="images/cloud_download.svg" alt="">
-                        text 
-                    </div>
-                    <div class="flex ">
-                        <span class="number">
-                            2
-                        </span>
-                    </div>
-                    <div class="flex ">
-                        <span class="number">
-                            3
-                        </span>
-                    </div>
-                    <div class="flex">
-                        <div>
-                            <img src="images/cloud_download.svg" alt="">
-                            text   
-                        </div>
+                        <img class="image-sizing" src="images/cloud_download.svg" alt="">
 
-                        <div class="">
-                            <img src="images/library_buildings.svg" alt="">
-                            text
-                        </div>
-                        
-                        <div class="">
-                            <img src="images/user_avatar.svg" alt="">
-                            text    
-                        </div>
+                        <span class="blue-text"> Upload Your Replay </span>
+                        <span class="about-replay">
+                        Simply select the .dem replay files you want to upload
+                        </span>
                     </div>
+
+                    <div class="flex flex-col items-center">
+                        <span class="number"> 2 </span>
+
+                        <img class="image-sizing" src="images/library_buildings.svg" alt="">
+                        
+                        <span class="blue-text"> We Parse Your Replay </span>
+                        <span class="about-replay"> 
+                            Our system extracts relevant match data
+                        </span>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <span class="number"> 3 </span>
+
+                        <img class="image-sizing" src="images/user_avatar.svg" alt="">
+
+                        <span class="blue-text">View Your Analysis </span>
+                        <span class="about-replay"> 
+                            Access detailed stats on your private profile page
+                        </span>    
+                    </div>   
                 </div>
+                
             </div>
+            <a class="upload-button" href="https://dota2protracker.com/upload">Start Uploading Replays</a>
         </div>
     </div>
+    <section class="flex trivia ">
+        <div class="flex flex-col">
+            <img src="images/stratz_banner_1.webp" alt="">
+            <div class="guess-game">
+                <div class="grid build">
+                    <img src="items/arcane_boots.webp" alt="" class="item-build">
+                    <img src="items/hand_of_midas.webp" alt="" class="item-build">
+                    <img src="items/magic_wand.webp" alt="" class="item-build">
+                    <img src="items/ethereal_blade.png" alt="" class="item-build">
+                    <img src="items/quelling_blade.webp" alt="" class="item-build">
+                    <img src="items/meteor_hammer.png" alt="" class="item-build">
+                </div>
+                <div class="flex gap-1 justify-space-between">
+                    <button class="build-answer">
+                        <img class="hero" src="heroes/nevermore_lg.jpg" alt="">
+                    </button>
+                    <button class="build-answer">
+                        <img class="hero" src="heroes/nevermore_lg.jpg" alt="">
+                    </button>
+                    <button class="build-answer">
+                        <img class="hero" src="heroes/nevermore_lg.jpg" alt="">
+                    </button>
+                    <button class="build-answer">
+                        <img class="hero" src="heroes/nevermore_lg.jpg" alt="">
+                    </button>
+                </div>
+                <span class=" block text-center">Guess The Hero</span>
+                <span class="text-center">that played with the shown Items in a 14167 MMR match.</span>
+            </div>
+        </div>
+        
+    </section>
     </main>
 </body>
 </html>
