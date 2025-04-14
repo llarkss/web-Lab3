@@ -39,9 +39,9 @@ h3
 
 .headerstyle
 {
-    height: 4.5vh;
-    padding-inline: 0.6vw;
-    padding-block: 0.5rem;
+    height: auto;
+    padding-block: 4px;
+    padding-inline: 1vw;
     border: 2px solid rgb(9, 52, 59);
     border-radius: 10px;
     background: url(images/blur.png) 0% 0%;
@@ -62,25 +62,27 @@ h3
     border-radius: 10px;
     border: 0px;
     background: url(images/blur.png) 0% 0%;
+
 }
 .searchBar::placeholder
 {
     color: rgb(148, 155, 167);
-    font-size: 1rem;
+    font-size: 1.23rem;
 }
 
 .image-text-group
 {
     display: flex;
 }
-
 .image-text-group > a {
     display: flex;
-    align-items: center;
-
     flex: 1;     
+    
     width: auto;
-    padding-inline: 0.5rem;
+    padding: 5px 10px;
+
+    justify-content: center;
+    align-items: center;
 }
 .image-text-group a > img {
     height: 4vh; 
@@ -107,23 +109,6 @@ h3
     border: 1px solid rgb(32, 49, 57);
     border-radius: 10px;
 }
-
-.how-it-works
-{
-    margin-block-start: 4vh;
-    margin-block-end: 1vh;
-    padding-block: 3vh;
-    width: 73vw;
-    
-    justify-content: center;
-    justify-self: center;
-    
-    background-image: linear-gradient(rgb(6, 23, 34), rgb(6, 20, 28));
-    border: 1px solid rgb(31, 47, 56);
-    border-radius: inherit;
-}
-
-
 .replay-service>span
 {
     font-size: 2rem;
@@ -142,6 +127,21 @@ h3
     background-color: rgb(23, 72, 87);
     border-radius: 5px;
     color: rgb(53, 199, 227);
+}
+
+.how-it-works
+{
+    margin-block-start: 4vh;
+    margin-block-end: 1vh;
+    padding-block: 3vh;
+    width: 73vw;
+    
+    justify-content: center;
+    justify-self: center;
+    
+    background-image: linear-gradient(rgb(6, 23, 34), rgb(6, 20, 28));
+    border: 1px solid rgb(31, 47, 56);
+    border-radius: inherit;
 }
 
 .number
@@ -169,21 +169,18 @@ h3
 }
 .about-replay
 {
-    
     color: rgb(165, 169, 173);
     font-size: 0.875rem ;
 }
 
 .upload-button
 {
-
     color: #fff;
     background-color: rgba(8, 15, 21, 0.2);
     font-size: 1.5rem;
     font-weight: bold;
     padding-inline: 1vh;
     border-radius: 5px;
-    
 }
 .upload-button:hover
 {
@@ -193,10 +190,12 @@ h3
 
 .trivia
 {
-    border-radius: 10px;
     display: flex;
     flex-direction: row;
-    margin-inline-start: 12vw;
+    max-width: 20vw;
+    
+    border-radius: 10px;
+    margin-inline-start: 11.5vw;
 }
 
 .guess-game
@@ -205,24 +204,28 @@ h3
     margin-block-start: 8px;
     padding-block-end: 18px;
     padding-inline: 1vw;
-    background-image: radial-gradient(rgb(21, 42, 50), rgb(15, 30, 36) 0% 0%);
+    background-image: linear-gradient(rgb(8, 42, 50), rgb(4, 23, 28) 100% 50%);
 }
 
 .build
 {
     display: grid;
-    grid-template-columns: repeat(3, 3.4vw);
-    grid-template-rows: repeat(3, 1fr);
-    row-gap: 0;   
-    column-gap: 0;
+    grid-template-columns: repeat(3, auto); 
+    grid-template-rows: repeat(2, auto); 
+    
+    column-gap: 10px;
+    row-gap: 5px; 
+    
     margin-block-start: 2vh;
+    margin-block-end: 3vh;
     justify-content: center;
 }
 
 .item-build
 {
-    height: 36px;
-
+    max-height: 7vh; 
+    max-width: 3vw;
+    object-fit: contain;
 }
 
 .build-answer
@@ -234,14 +237,32 @@ h3
 }
 .hero 
 {
+    display: flex;
     border-radius: 6px;
     object-fit: cover;
-    display: flex;
-    height: 3.8vh;
+    height: 4vh;
 }
 
 .hero:hover
 {
-    height: 4vh;
+    height: 4.5vh;
     transition: 0.20s;
+}
+
+.guess-hero-text
+{
+    margin-block-start: 3vh;
+    margin-block-end: 1vh;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+span.block
+{
+    font-size: 1.1rem;
+    color: rgb(204, 204, 204);
+    margin-block-end: 4vh;
+    margin-inline: 2vw;
 }
