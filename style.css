@@ -223,8 +223,8 @@ h3
 
 .item-build
 {
-    max-height: 7vh; 
-    max-width: 3vw;
+    height: 5vh;
+
     object-fit: contain;
 }
 
@@ -265,4 +265,34 @@ span.block
     color: rgb(204, 204, 204);
     margin-block-end: 4vh;
     margin-inline: 2vw;
+}
+
+.play-again
+{
+    display: block;
+    margin: 10px auto;
+    padding: 10px 15px;
+    font-size: 1rem;
+    background: linear-gradient(130deg, rgba(147, 82, 226, 0.7), rgba(63, 116, 225,0.7));
+    border-radius: 10px;
+    border: none;
+    color: white;
+    transition: 0.30s;
+}
+
+.play-again:hover
+{
+
+    background: linear-gradient(130deg, rgba(147, 82, 226, 1), rgba(63, 116, 225,1));
+}
+
+span#correct, span#wrong
+{
+    font-size: 1.5rem
+}
+span#wrong
+{
+    outline: 1px dotted green;
+    display: flex;
+    justify-content: end ;
 }

@@ -27,26 +27,6 @@
 {
     display: flex;
 }
-.flex>*/*debug purpose*/
-{
-    /* outline: 1px dotted lime; */
-}
-.image-text-group>*/*debug purpose*/
-{
-    outline: 1px dotted lime;
-}
-.block>*
-{
-    outline: 1px dotted lime;
-}
-.grid>*
-{
-    outline: 1px dotted lime;
-}
-.inline-block>*
-{
-    outline: 1px dotted lime;
-}
 .inline-block
 {
     display: inline-block;
@@ -62,6 +42,28 @@
 .grid
 {
     display: grid;
+}
+
+/*debug purpose*/
+.flex>*
+{
+    /* outline: 1px dotted lime; */
+}
+.image-text-group>*/*debug purpose*/
+{
+    /* outline: 1px dotted lime; */
+}
+.block>*
+{
+    /* outline: 1px dotted lime; */
+}
+.grid>*
+{
+    /* outline: 1px dotted lime; */
+}
+.inline-block>*
+{
+    /* outline: 1px dotted lime; */
 }
 
 /*flex related propreties*/

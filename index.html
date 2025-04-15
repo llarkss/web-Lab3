@@ -9,7 +9,8 @@
     <title>Dota ProTracker</title>
 </head>
 <body>
-
+    
+ 
    <header class="flex flex-wrap gap-2">
        <div class="headerstyle flex gap-2 flex-grow">
             <div class="flex">
@@ -139,40 +140,52 @@
             <img src="images/stratz_banner_1.webp" alt="">
             <div class="guess-game">
                 <div class="grid build">
-                    <img src="items/arcane_boots.webp" alt="" class="item-build">
-                    <img src="items/hand_of_midas.webp" alt="" class="item-build">
-                    <img src="items/magic_wand.webp" alt="" class="item-build">
-                    <img src="items/ethereal_blade.png" alt="" class="item-build">
-                    <img src="items/quelling_blade.webp" alt="" class="item-build">
-                    <img src="items/meteor_hammer.png" alt="" class="item-build">
+                    <img src="items/Abyssal_Blade_icon.png" alt="" class="item-build">
+                    <img src="items/Aeon_Disk_icon.png" alt="" class="item-build">
+                    <img src="items/Aegis_of_the_Immortal_icon.png" alt="" class="item-build">
+                    <img src="items/Shadow_Amulet_icon.png" alt="" class="item-build">
+                    <img src="items/Quelling_Blade_icon.png" alt="" class="item-build">
+                    <img src="items/Boots_of_Speed_icon.png" alt="" class="item-build">
                 </div>
 
                 <div class="flex gap-1 justify-center">
-                    <button class="build-answer">
-                        <img class="hero" src="heroes/nevermore_lg.jpg" alt="">
+                    <button class="build-answer" data-hero="shadow demon">
+                        <img class="hero" src="hero_icons/shadow_demon_lg.jpg" alt="">
                     </button>
 
-                    <button class="build-answer">
-                        <img class="hero" src="heroes/nevermore_lg.jpg" alt="">
+                    <button class="build-answer" data-hero="pudge">
+                        <img class="hero" src="hero_icons/nevermore_lg.jpg" alt="">
                     </button>
 
-                    <button class="build-answer">
-                        <img class="hero" src="heroes/nevermore_lg.jpg" alt="">
+                    <button class="build-answer" data-hero="broodmother_lg">
+                        <img class="hero" src="hero_icons/pudge_lg.jpg" alt="">
                     </button>
 
-                    <button class="build-answer">
-                        <img class="hero" src="heroes/nevermore_lg.jpg" alt="">
+                    <button class="build-answer" data-hero="snapfire">
+                        <img class="hero" src="hero_icons/abyssal_underlord_lg.jpg" alt="">
                     </button>
                 </div>
 
-                <span class="guess-hero-text">
+                <span id="result-text" class="guess-hero-text">
                     Guess The Hero
                 </span>
-                <span class="block text-center">that played with the shown Items in a 14167 MMR match.</span>
+                <span id="mmr" class="block text-center">
+                    that played with the shown Items in a 14167 MMR match.
+                </span>
+                <div class="flex justify-space-between">
+                    <span id="correct">
+                        ✅
+                    </span>
+                    
+                    <span id="wrong">
+                        ❌
+                    </span>
+                </div>
             </div>
         </div>
         
     </section>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
