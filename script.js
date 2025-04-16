@@ -297,69 +297,6 @@ const Heroes = [
     { src: "items/Blade_Mail_icon.png", item: "blade_mail" },
 ];
 
-// let correctHero = "shadow demon";
-// let bigHero = correctHero.charAt(0).toUpperCase()+correctHero.slice(1);
-
-// const buttons = document.querySelectorAll(".build-answer");
-// const resultText = document.getElementById("result-text");
-// const hide = document.getElementById("mmr");
-
-// buttons.forEach(button => 
-// {
-//     button.addEventListener("click", () => 
-//         {
-//         const selectedHero = button.getAttribute("data-hero");
-//         if (selectedHero === correctHero) 
-//         {
-//             resultText.textContent = "✅ Правильно! Хотите сыграть ещё?";
-//         } 
-//         else 
-//         {
-//             resultText.textContent = `❌ Неверно! ${bigHero} выиграл этот матч. Попробуйте ещё!`;
-//         }
-//         document.querySelectorAll(".build-answer").forEach(btn => {
-//             btn.disabled = true;
-//         });
-//         hide.textContent = "";
-//         showPlayAgainButton();
-//     });
-// });
-
-// function showPlayAgainButton() {
-//     if (!document.getElementById("play-again")) {
-//         const btn = document.createElement("button");
-//         btn.id = "play-again";
-        
-//         btn.textContent = "Играть ещё раз";
-
-//         btn.classList.add("play-again")
-
-//         btn.addEventListener("click", () => {
-//             startNewRound();
-//         });
-
-//         resultText.after(btn);
-//     }
-// }
-
-// function startNewRound() {
-//     let NewHeroes;
-//     for(let i = 0; i<4; i++)
-//     {
-//         NewHeroes[i] = Heroes[Math.random()];
-//     }
-
-//     let NewItems;
-//     for(let i = 0; i <6; i++)
-//     {
-//         NewItems[i] = Items[Math.random()];
-//     }
-    
-    
-//     if (playAgainBtn) 
-//         playAgainBtn.remove();
-// }
-
 
 let correctHero     = "shadow demon"; 
 let correctChoice   = 0;
@@ -370,7 +307,6 @@ const resultText = document.getElementById("result-text");
 const mmrText = document.getElementById("mmr");
 const itemImages = document.querySelectorAll(".build .item-build"); 
 
-
 const correct = document.getElementById("correct");
 const wrong = document.getElementById("wrong");
 
@@ -379,7 +315,6 @@ buttons.forEach(button => {
     button.addEventListener("click", handleGuess);
 });
 
-
 function handleGuess(event)
 {  
     mmrText.textContent = `that played with the shown Items in a 
@@ -387,7 +322,7 @@ function handleGuess(event)
                            MMR match. `
     
     const selectedHero = event.currentTarget.getAttribute("data-hero");
-    let bigHero = correctHero.charAt(0).toUpperCase() 
+    let bigCapHero = correctHero.charAt(0).toUpperCase() 
                 + correctHero.slice(1).replace('_', ' ');
     
     if (selectedHero === correctHero) 
@@ -399,7 +334,7 @@ function handleGuess(event)
     else 
     {
         ++wrongChoice;
-        resultText.textContent = `❌ Неверно! ${bigHero} выиграл этот матч. Попробуйте ещё!`;
+        resultText.textContent = `❌ Неверно! ${bigCapHero} выиграл этот матч. Попробуйте ещё!`;
         resultText.style.color = 'red'; 
     }
     document.querySelectorAll(".build-answer").forEach(btn => {
@@ -412,57 +347,48 @@ function handleGuess(event)
     showPlayAgainButton();
 }
 
-function showPlayAgainButton() {
+function showPlayAgainButton()
+{
+    const btn = document.createElement("button");
+    btn.id = "play-again";
+    btn.textContent = "Играть ещё раз";
+    btn.classList.add("play-again"); 
 
-    if (!document.getElementById("play-again")) {
-        const btn = document.createElement("button");
-        btn.id = "play-again";
-        btn.textContent = "Играть ещё раз";
-        btn.classList.add("play-again"); 
-
-        btn.addEventListener("click", startNewRound);
-        resultText.after(btn);
-    }
+    btn.addEventListener("click", startNewRound);
+    resultText.after(btn);
 }
 
 function startNewRound() 
 {
-    const selectedItems = [];
-    while (selectedItems.length < 6) 
+    const newItems = [];
+    for(let i = 0; i < 6; ++i) 
     {
         const randomIndex = Math.floor(Math.random() * Items.length);
-        selectedItems.push(Items[randomIndex]);
+        newItems.push(Items[randomIndex]);
     }
 
-    const selectedHeroes = [];
-    while (selectedHeroes.length < 4) 
+    const newHeroes = [];
+    for(let i = 0; i < 6; ++i) 
     {
         const randomIndex = Math.floor(Math.random() * Heroes.length);
-        selectedHeroes.push(Heroes[randomIndex]);
+        newHeroes.push(Heroes[randomIndex]);
     }
 
-    const correctHeroIndex = Math.floor(Math.random() * selectedHeroes.length);
-    correctHero = selectedHeroes[correctHeroIndex].hero; 
-
+    const correctHeroIndex = Math.floor(Math.random() * newHeroes.length);
+    correctHero = newHeroes[correctHeroIndex].hero; 
 
     itemImages.forEach((imgElement, index) => 
     {
-        if (selectedItems[index]) 
-        { 
-             imgElement.src = selectedItems[index].src;
-        }
+        imgElement.src = newItems[index].src; 
     });
 
     buttons.forEach((button, index) => 
     {
-        if (selectedHeroes[index]) 
-        {
-            const heroImg = button.querySelector('img.hero');
-            button.setAttribute('data-hero', selectedHeroes[index].hero);
-            heroImg.src = selectedHeroes[index].src;
+        const heroImg = button.querySelector('img.hero');
+        button.setAttribute('data-hero', newHeroes[index].hero);
+        heroImg.src = newHeroes[index].src;
 
-            button.disabled = false; 
-        }
+        button.disabled = false; 
     });
 
     resultText.textContent = "Guess The Hero"; 
