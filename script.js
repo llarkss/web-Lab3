@@ -400,3 +400,123 @@ function startNewRound()
         playAgainBtn.remove();
 
 }
+
+//user input vallidation starts here 
+function checkEmail(email)
+{
+    const emailRegex = /\p{L}+@\p{L}+\.\p{L}/u;
+    return emailRegex.test(email);
+}
+
+function checkPassword(password) 
+{
+    if(password.length <= 8) {
+        return {isValid: false, message: "Пароль должен содержать 8 или более символов"};
+    }
+
+    if(!/\p{L}/u.test(password)) {
+        return {isValid: false, message: "Пароль должен содержать хотя бы одну букву"};
+    }
+    
+    if(!/\d/.test(password)) {
+        return {isValid: false, message: "Пароль должен содержать хотя бы одну цифру"};
+    }
+
+    return {isValid: true, message: "Пароль корректный"};
+}
+
+function validateInput(inputElement) 
+{
+    const value = inputElement.value.trim();
+
+    if(value == "")
+    {
+        showError(inputElement, "This field is required");
+        return false;
+    }
+    
+    if(inputElement.id == "first-name" || inputElement.id == "second-name")
+    {
+        if(!/^\p{L}+(-\p{L}+)*$/u.test(value))
+        {
+            showError(inputElement, "Допустимы только буквы/дефис");
+            return false;
+        }
+    }
+
+    if(inputElement.id == "email-input")
+    {
+        if(!checkEmail(value))
+        {
+            showError(inputElement, "введите корректный email");
+            return false;
+        }
+    }
+
+    if(inputElement.id == "password-input")
+    {
+        const passwordCheck = checkPassword(value);
+        if(!passwordCheck.isValid)
+        {
+            showError(inputElement, passwordCheck.message);
+            return false; 
+        }
+    }
+
+    //remove the error
+    const parent = inputElement.parentElement;
+    const existingError = parent.querySelector('.error-message');
+
+    inputElement.style.border = "";
+    if (existingError) 
+    {
+        existingError.remove();
+    }
+    
+    return true;
+}
+
+function showError(inputElement, message) {
+    const parent = inputElement.parentElement;
+    const existingError = parent.querySelector('.error-message');
+    if (existingError) 
+    {
+        existingError.remove();
+    }
+
+    const errorSpan = document.createElement("span");
+    errorSpan.textContent = message;
+    errorSpan.className = "error-message";
+    errorSpan.style.color = "red";
+    errorSpan.style.display = "block";
+    errorSpan.style.textAlign = "center";
+    errorSpan.style.fontSize = "0.875rem";
+    errorSpan.style.maxWidth = "250px";
+
+    inputElement.style.border = "2px solid red";
+
+    inputElement.after(errorSpan);
+}
+
+function validateForm(event) 
+{
+    event.preventDefault(); 
+    
+    let firstNameInput = document.getElementById("first-name");
+    let secondNameInput = document.getElementById("second-name");
+    let emailInput = document.getElementById("email-input");
+    let passwordInput = document.getElementById("password-input");
+
+    const isFirstNameValid = validateInput(firstNameInput);
+    const isLastNameValid = validateInput(secondNameInput);
+    const isEmailValid = validateInput(emailInput);
+    const isPasswordValid = validateInput(passwordInput);
+    
+    if (isFirstNameValid && isLastNameValid && isEmailValid && isPasswordValid) {
+        // Здесь можно выполнить дополнительные действия перед отправкой формы
+        alert("Форма успешно отправлена!");
+        return true;
+    }
+    
+    return false; 
+}

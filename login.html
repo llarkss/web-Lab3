@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="layout1.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section >
+            <div style="margin-block-start: 25px;">
+                <a class="return" href="index.html">Go Back</a>
+            </div>
+
+            <div class="center-container">
+                <div class="dataInput">
+                    <form onsubmit="return validateForm(event)">
+                        <div class="formText">
+                            <label> First Name </label> 
+                        </div>
+
+                        <div class="userInputContainer">
+                            <input class="userInput" name="firstName" 
+                            type="text" 
+                            id="first-name" 
+                            placeholder="Enter your first name" 
+                            onblur="validateInput(this)">
+                        </div>
+
+                        <div class="formText">
+                            <label>Last Name</label>
+                        </div>
+
+                        <div class="userInputContainer">
+                            <input class="userInput" 
+                            type="text" 
+                            name="secondName" 
+                            id="second-name" 
+                            placeholder="Enter your second name" 
+                            onblur="validateInput(this)">
+                        </div>
+
+                        <div class="formText">
+                            <label>Email</label>
+                        </div>
+
+                        <div class="userInputContainer">
+                            <input class="userInput" 
+                            type="email" 
+                            id="email-input" 
+                            placeholder="Enter your email" 
+                            onblur="validateInput(this)">
+                        </div>
+
+                        <div class="formText">
+                            <label>Password</label>
+                        </div>
+
+                        <div class="userInputContainer">
+                            <input class="userInput" 
+                            type="password" 
+                            id="password-input" 
+                            placeholder="Enter your password" 
+                            onblur="validateInput(this)">
+                        </div>
+
+                        <button class="submit" type="submit">
+                            Create a free account
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+<script src="script.js"></script>
