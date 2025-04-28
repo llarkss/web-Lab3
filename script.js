@@ -500,7 +500,7 @@ function showError(inputElement, message) {
 
 function validateForm(event) 
 {
-    event.preventDefault(); 
+    // event.preventDefault(); 
     
     let firstNameInput = document.getElementById("first-name");
     let secondNameInput = document.getElementById("second-name");
@@ -514,7 +514,7 @@ function validateForm(event)
     
     if (isFirstNameValid && isLastNameValid && isEmailValid && isPasswordValid) {
         // Здесь можно выполнить дополнительные действия перед отправкой формы
-        alert("Форма успешно отправлена!");
+        // alert("Форма успешно отправлена!");
         return true;
     }
     
