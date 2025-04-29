@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="layout1.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section >
+            <div style="margin-block-start: 25px;">
+                <a class="return" href="join.html">Go Back</a>
+            </div>
+            
+            <div class="center-container">
+                <div class="dataInput">
+                    <div class="top-text">
+                        <h3 class="welcome"> Oh! A familiar face! </h3> 
+
+                        <p class="welcome">Your email: <strong><span id="email-display"></span></strong></p>
+                    </div>
+
+                    <form onsubmit="return validateForm(event)" method="post" action="login.php">
+
+                        <input type="hidden" name="email" id="email-hidden">
+
+                        <div class="formText">
+                            <label>Password</label>
+                        </div>
+                        <div class="userInputContainer">
+                            <input class="userInput"
+                            name = "password" 
+                            type="password" 
+                            id="password-input" 
+                            placeholder="Enter your password" 
+                            onblur="validateInput(this) ">
+                        </div>
+
+                        <button class="submit" type="submit">
+                            LOG IN
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+<script src="script.js"></script>

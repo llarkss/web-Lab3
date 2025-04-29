@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="layout1.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section >
+            <div style="margin-block-start: 25px;">
+                <a class="return" href="index.html">Go Back</a>
+            </div>
+            
+            <div class="center-container">
+                <div class="dataInput">
+                    <div>
+                        <h3 class="welcome"> Hi friend! </h3> 
+                        
+                        <p class="welcome"> 
+                            Enter your email to sign in or join for
+                        </p>
+                    </div>
+                    
+                    <form onsubmit="return validateForm(event)" method="post" action="join.php">
+                        <div class="formContainer">
+                            <div class="formText">
+                                <label>Email</label>
+                            </div>
+                            
+                            <div class="userInputContainer">
+                                <input class="userInput" 
+                                name="email"   
+                                type="email" 
+                                id="email-input" 
+                                placeholder="Enter your email" 
+                                onblur="validateInput(this)">
+                            </div>
+                        </div>
+                            
+                            <button class="submit" type="submit">
+                            CONTINUE
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+<script src="script.js"></script>

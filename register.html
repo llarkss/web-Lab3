@@ -11,66 +11,63 @@
     <main>
         <section >
             <div style="margin-block-start: 25px;">
-                <a class="return" href="index.html">Go Back</a>
+                <a class="return" href="join.html">Go Back</a>
             </div>
 
             <div class="center-container">
                 <div class="dataInput">
-                    <form onsubmit="return validateForm(event)" method="post" action="register.php">
-                        <div class="formText">
-                            <label> First Name </label> 
+                    <div class="temp">
+                        <h3 class="welcome"> We love new faces :)</h3> 
+                        <p class="welcome">Your email: <strong><span id="email-display"></span></strong></p>    
+                    </div>
+
+                    <form onsubmit="return validateForm(event)" method="post" action="register.php">                     
+                        <input type="hidden" name="email" id="email-hidden">
+
+                        <div class="formContainer">
+                            <div class="formText">
+                                <label> First Name </label> 
+                            </div>
+                            <div class="userInputContainer">
+                                <input class="userInput" 
+                                name="firstName" 
+                                type="text" 
+                                id="first-name" 
+                                placeholder="Enter your first name" 
+                                onblur="validateInput(this)">
+                            </div>
                         </div>
 
-                        <div class="userInputContainer">
-                            <input class="userInput" 
-                            name="firstName" 
-                            type="text" 
-                            id="first-name" 
-                            placeholder="Enter your first name" 
-                            onblur="validateInput(this)">
+                        <div class="formContainer">
+                            <div class="formText">
+                                <label>Last Name</label>
+                            </div>
+                            <div class="userInputContainer">
+                                <input class="userInput" 
+                                type="text" 
+                                name="secondName" 
+                                id="second-name" 
+                                placeholder="Enter your second name" 
+                                onblur="validateInput(this)">
+                            </div>
                         </div>
 
-                        <div class="formText">
-                            <label>Last Name</label>
+                        <div class="formContainer">
+                            <div class="formText">
+                                <label>Password</label>
+                            </div>
+                            <div class="userInputContainer">
+                                <input class="userInput"
+                                name = "password" 
+                                type="password" 
+                                id="password-input" 
+                                placeholder="Enter your password" 
+                                onblur="validateInput(this) ">
+                            </div>
                         </div>
-
-                        <div class="userInputContainer">
-                            <input class="userInput" 
-                            type="text" 
-                            name="secondName" 
-                            id="second-name" 
-                            placeholder="Enter your second name" 
-                            onblur="validateInput(this)">
-                        </div>
-
-                        <div class="formText">
-                            <label>Email</label>
-                        </div>
-
-                        <div class="userInputContainer">
-                            <input class="userInput" 
-                            name="email"   
-                            type="email" 
-                            id="email-input" 
-                            placeholder="Enter your email" 
-                            onblur="validateInput(this)">
-                        </div>
-
-                        <div class="formText">
-                            <label>Password</label>
-                        </div>
-
-                        <div class="userInputContainer">
-                            <input class="userInput"
-                            name = "password" 
-                            type="password" 
-                            id="password-input" 
-                            placeholder="Enter your password" 
-                            onblur="validateInput(this) ">
-                        </div>
-
+                        
                         <button class="submit" type="submit">
-                            Create a free account
+                            CREATE A FREE ACCOUNT
                         </button>
                     </form>
                 </div>

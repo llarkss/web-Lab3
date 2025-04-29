@@ -368,7 +368,7 @@ function startNewRound()
     }
 
     const newHeroes = [];
-    for(let i = 0; i < 6; ++i) 
+    for(let i = 0; i < 4; ++i) 
     {
         const randomIndex = Math.floor(Math.random() * Heroes.length);
         newHeroes.push(Heroes[randomIndex]);
@@ -491,7 +491,7 @@ function showError(inputElement, message) {
     errorSpan.style.display = "block";
     errorSpan.style.textAlign = "center";
     errorSpan.style.fontSize = "0.875rem";
-    errorSpan.style.maxWidth = "250px";
+    errorSpan.style.maxWidth = "450px";
 
     inputElement.style.border = "2px solid red";
 
@@ -500,23 +500,54 @@ function showError(inputElement, message) {
 
 function validateForm(event) 
 {
-    // event.preventDefault(); 
-    
-    let firstNameInput = document.getElementById("first-name");
-    let secondNameInput = document.getElementById("second-name");
-    let emailInput = document.getElementById("email-input");
-    let passwordInput = document.getElementById("password-input");
+    const inputs = Array.from(event.target.querySelectorAll('input'));
+  let allValid = true;
 
-    const isFirstNameValid = validateInput(firstNameInput);
-    const isLastNameValid = validateInput(secondNameInput);
-    const isEmailValid = validateInput(emailInput);
-    const isPasswordValid = validateInput(passwordInput);
-    
-    if (isFirstNameValid && isLastNameValid && isEmailValid && isPasswordValid) {
-        // Здесь можно выполнить дополнительные действия перед отправкой формы
-        // alert("Форма успешно отправлена!");
-        return true;
+  inputs.forEach(input => {
+    // пропускаем скрытые поля (type="hidden")
+    if (input.type === 'hidden') return;
+
+    // валидируем только присутствующие элементы
+    if (!validateInput(input)) {
+      allValid = false;
     }
-    
-    return false; 
+  });
+
+  // если что-то не прошло — блокируем отправку
+  if (!allValid) {
+    event.preventDefault();
+  }
+  return allValid;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get('email') || '';
+    if (!email) return;
+  
+    // отобразить email
+    document.querySelectorAll('#email-display')
+            .forEach(el => el.textContent = email);
+  
+    // записать в скрытое поле
+    const hidden = document.getElementById('email-hidden');
+    if (hidden) hidden.value = email;
+  });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const isLogged = params.get('loggedIn') === '1';
+  if (!isLogged) return;
+
+  // найдём кнопку Join
+  const btn = document.querySelector('.loginButton');
+  if (!btn) return;
+
+  // поменяем текст и ссылку
+  btn.textContent = 'Log out';
+  btn.href = 'logout.php';
+
+  // очистим параметр из URL, чтобы при F5 он не повторялся
+  history.replaceState(null, '', window.location.pathname);
+});
