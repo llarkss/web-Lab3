@@ -16,13 +16,14 @@
 
             <div class="center-container">
                 <div class="dataInput">
-                    <form onsubmit="return validateForm(event)">
+                    <form onsubmit="return validateForm(event)" method="post" action="register.php">
                         <div class="formText">
                             <label> First Name </label> 
                         </div>
 
                         <div class="userInputContainer">
-                            <input class="userInput" name="firstName" 
+                            <input class="userInput" 
+                            name="firstName" 
                             type="text" 
                             id="first-name" 
                             placeholder="Enter your first name" 
@@ -48,6 +49,7 @@
 
                         <div class="userInputContainer">
                             <input class="userInput" 
+                            name="email"   
                             type="email" 
                             id="email-input" 
                             placeholder="Enter your email" 
@@ -59,11 +61,12 @@
                         </div>
 
                         <div class="userInputContainer">
-                            <input class="userInput" 
+                            <input class="userInput"
+                            name = "password" 
                             type="password" 
                             id="password-input" 
                             placeholder="Enter your password" 
-                            onblur="validateInput(this)">
+                            onblur="validateInput(this) ">
                         </div>
 
                         <button class="submit" type="submit">

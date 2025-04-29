@@ -404,7 +404,7 @@ function startNewRound()
 //user input vallidation starts here 
 function checkEmail(email)
 {
-    const emailRegex = /\p{L}+@\p{L}+\.\p{L}/u;
+    const emailRegex =/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(email);
 }
 
