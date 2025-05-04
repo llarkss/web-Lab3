@@ -1,26 +1,34 @@
 <?php
 session_start();
 
-$pdo = new PDO(
+$conn = new PDO(
   'mysql:host=127.0.0.1;dbname=user_db;charset=utf8mb4',
-  'root','',[PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION]
+  'root',''
 );
 
-$email = trim($_POST['email'] ?? '');
-if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  exit('Неверный email');
+$em = $_POST['email'];
+
+$em = trim($em);
+
+if ($em == '') {
+  echo 'Неверный email';
+  exit();
 }
 
-$stmt = $pdo->prepare('SELECT id FROM users WHERE email = ?');
-$stmt->execute([$email]);
-$exists = (bool)$stmt->fetchColumn();
+$sql = "SELECT id FROM users WHERE email = '$em'";
+$result = $conn->query($sql);
+$exists = false;
 
-if ($exists) 
+if ($result->rowCount() > 0) {
+  $exists = true;
+}
+
+if ($exists == true) 
 {
-  header('Location: login.html?email=' . urlencode($email));
+  header('Location: login.html?email=' . $em);
 } 
 else 
 {
-  header('Location: register.html?email=' . urlencode($email));
+  header('Location: register.html?email=' . $em);
 }
 exit;

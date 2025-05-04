@@ -401,10 +401,10 @@ function startNewRound()
 
 }
 
-//user input vallidation starts here 
+//user input vallidation  
 function checkEmail(email)
 {
-    const emailRegex =/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const emailRegex =/^[a-zA-Z0-9._-]+@[a-zA-Z.]+\.[a-zA-Z]+$/;
     return emailRegex.test(email);
 }
 
@@ -463,7 +463,6 @@ function validateInput(inputElement)
         }
     }
 
-    //remove the error
     const parent = inputElement.parentElement;
     const existingError = parent.querySelector('.error-message');
 
@@ -501,53 +500,45 @@ function showError(inputElement, message) {
 function validateForm(event) 
 {
     const inputs = Array.from(event.target.querySelectorAll('input'));
-  let allValid = true;
+    let allValid = true;
 
-  inputs.forEach(input => {
-    // пропускаем скрытые поля (type="hidden")
-    if (input.type === 'hidden') return;
+    inputs.forEach(input => {
+        if (input.type === 'hidden') return;
 
-    // валидируем только присутствующие элементы
-    if (!validateInput(input)) {
-      allValid = false;
+        if (!validateInput(input)) {
+        allValid = false;
+        }
+    });
+
+
+    if (!allValid) {
+        event.preventDefault();
     }
-  });
-
-  // если что-то не прошло — блокируем отправку
-  if (!allValid) {
-    event.preventDefault();
-  }
-  return allValid;
+    return allValid;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => 
+{
     const params = new URLSearchParams(window.location.search);
-    const email = params.get('email') || '';
-    if (!email) return;
-  
-    // отобразить email
-    document.querySelectorAll('#email-display')
-            .forEach(el => el.textContent = email);
-  
-    // записать в скрытое поле
-    const hidden = document.getElementById('email-hidden');
-    if (hidden) hidden.value = email;
+    const email = params.get('email');
+    
+    if (email) {
+        const emailDisplay = document.getElementById('email-display');
+        if (emailDisplay) 
+            emailDisplay.textContent = email;
+
+        const hidden = document.getElementById('email-hidden');
+        if (hidden) 
+            hidden.value = email;
+    }
+
+    if (params.get('loggedIn') == '1') 
+    {
+        const btn = document.querySelector('.loginButton');
+        if (btn) 
+        {
+            btn.textContent = 'Log out';
+            btn.href = 'logout.php';
+        }
+    }
   });
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const params = new URLSearchParams(window.location.search);
-  const isLogged = params.get('loggedIn') === '1';
-  if (!isLogged) return;
-
-  // найдём кнопку Join
-  const btn = document.querySelector('.loginButton');
-  if (!btn) return;
-
-  // поменяем текст и ссылку
-  btn.textContent = 'Log out';
-  btn.href = 'logout.php';
-
-  // очистим параметр из URL, чтобы при F5 он не повторялся
-  history.replaceState(null, '', window.location.pathname);
-});
