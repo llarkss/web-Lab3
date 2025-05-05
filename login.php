@@ -6,7 +6,7 @@ $db = new PDO('mysql:host=127.0.0.1;dbname=user_db;charset=utf8mb4', 'root', '')
 $email = $_POST['email'];
 $pass = $_POST['password'];
 
-$sql = "SELECT id, firstname, password FROM users WHERE email = '$email'";
+$sql = "SELECT id, CONCAT(firstname, ' ', lastname) as name, password FROM users WHERE email = '$email'";
 $result = $db->query($sql);
 $user = $result->fetch();
 
@@ -22,5 +22,7 @@ if (!$password_correct) {
   exit();
 }
 
-header('Location: index.html?loggedIn=1');
+$fullName = urlencode($user['name']);
+
+header("Location: index.html?loggedIn=1&fullName=$fullName");
 exit;

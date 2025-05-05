@@ -541,4 +541,14 @@ document.addEventListener('DOMContentLoaded', () =>
             btn.href = 'logout.php';
         }
     }
+    const fullName = document.getElementById('userName');
+    if(fullName)
+    {
+        fullName.classList.add("userNameText");
+        const getName = params.get('fullName');
+        if(getName)
+            fullName.textContent = "Hi "+getName+"!"; 
+        else
+            fullName.textContent = "Hi there!"; 
+    }   
   });

@@ -13,6 +13,7 @@ $hashed_password = password_hash($pass, PASSWORD_BCRYPT);
 $sql = "INSERT INTO users (lastname, firstname, email, password) 
         VALUES ('$lname', '$fname', '$email', '$hashed_password')";
 
+
 $success = $db->exec($sql);
 
 if (!$success) {
@@ -20,5 +21,6 @@ if (!$success) {
   exit();
 }
 
-header('Location: index.html?loggedIn=1');
+$fullName = urlencode($fname . ' ' . $lname);
+header("Location: index.html?loggedIn=1&fullName=$fullName");
 exit;
