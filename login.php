@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 $db = new PDO('mysql:host=127.0.0.1;dbname=user_db;charset=utf8mb4', 'root', '');
 
@@ -25,4 +24,3 @@ if (!$password_correct) {
 $fullName = urlencode($user['name']);
 
 header("Location: index.html?loggedIn=1&fullName=$fullName");
-exit;

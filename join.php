@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 $conn = new PDO(
   'mysql:host=127.0.0.1;dbname=user_db;charset=utf8mb4',
@@ -31,4 +30,3 @@ else
 {
   header("Location: register.html?email=$em");
 }
-exit;
