@@ -431,7 +431,7 @@ function validateInput(inputElement)
 
     if(value == "")
     {
-        showError(inputElement, "This field is required");
+        showError(inputElement, "Это обязательное поле!");
         return false;
     }
     
@@ -509,7 +509,6 @@ function validateForm(event)
         allValid = false;
         }
     });
-
 
     if (!allValid) {
         event.preventDefault();
