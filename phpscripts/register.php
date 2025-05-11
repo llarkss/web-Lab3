@@ -21,4 +21,4 @@ if (!$success) {
 }
 
 $fullName = urlencode($fname . ' ' . $lname);
-header("Location: index.html?loggedIn=1&fullName=$fullName");
+header("Location:  ../index.html?loggedIn=1&fullName=$fullName");

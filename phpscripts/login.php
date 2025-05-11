@@ -23,4 +23,4 @@ if (!$password_correct) {
 
 $fullName = urlencode($user['name']);
 
-header("Location: index.html?loggedIn=1&fullName=$fullName");
+header("Location:  ../index.html?loggedIn=1&fullName=$fullName");

@@ -121,7 +121,7 @@ h3
     max-width: 20vw;
     
     border-radius: 10px;
-    margin-inline-start: 11.5vw;
+    margin-inline-start: 3.5vw;
 }
 
 
@@ -406,4 +406,130 @@ h3.welcome
     text-align: center;
     color: rgba(82, 82, 82, 0.822);
     font-size: 0.9rem;
+}
+
+/* account stuff ends here */
+
+/* hero data stuff starts here */
+.wrapper
+{
+    display: flex; 
+    align-items: flex-start;
+}
+
+.hero-stats-container
+{
+    display: flex; 
+    flex-direction: column;
+    flex-grow: 0;
+    
+    margin-inline-start: 2vw;
+    padding-inline-end: 1vw; 
+    padding-block: 1vh;
+
+    width: fit-content; 
+    max-width: calc(100% - 4vw); 
+}
+
+
+.hero-stats-container > .flex {
+    display: grid;
+
+    grid-template-columns: minmax(120px, 1.5fr) repeat(8, minmax(70px, 1fr));
+    gap: 1px;
+    background-color: #1a1d23; 
+    border-bottom: 1px solid #2a2d33; 
+}
+
+.sort-criteria
+{
+    display: flex;
+    align-items: center; 
+    padding: 8px 10px; 
+    font-size: 0.8rem; 
+  
+    background-color: rgba(20, 25, 35, 0.9); 
+    color: #a0a0a0;
+    text-align: center; 
+}
+
+.sort-criteria:first-child {
+    text-align: center; 
+    justify-content: flex-start;
+}
+
+
+.sort-button
+{
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit; 
+    cursor: pointer;
+    width: 100%; 
+    text-align: inherit; 
+}
+.sort-button:hover {
+    color: #ffffff;
+}
+
+.hero-stats-grid
+{
+  display: grid;
+ 
+  grid-template-columns: minmax(120px, 1.5fr) repeat(8, minmax(70px, 1fr));
+  gap: 1px; 
+  background-color: #1a1d23; 
+  margin-block-start: 0px; 
+  margin-inline-start: 0px; 
+}
+
+.hero-row {
+  display: contents; 
+}
+
+.hero-cell {
+  background-color: rgba(13, 17, 24, 0.95); 
+  padding: 12px 13px; 
+  font-size: 0.875rem;
+  color: #c8c8c8; 
+  text-align: right; 
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  min-height: 30px; 
+}
+
+.hero-cell.hero-info {
+  justify-content: flex-start; 
+  gap: 8px;
+  color: #ffffff; 
+}
+
+.hero-cell .hero-name {
+  font-weight: 500;
+}
+
+.hero-cell.winrate, 
+.hero-cell.t-winrate {
+  color: #66bb6a;
+  font-weight: bold;
+}
+
+.hero-cell.matches,
+.hero-cell.contest-rate,
+.hero-cell.d2pt-rating,
+.hero-cell.t-matches,
+.hero-cell.t-contest,
+.hero-cell.t-rating {
+    color: #e0e0e0; 
+}
+
+.hero-img
+{
+    width: 60px; 
+    height: 40px; 
+    object-fit: cover;
+    border-radius: 3px; 
 }

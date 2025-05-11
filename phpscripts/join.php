@@ -24,9 +24,9 @@ if ($result->rowCount() > 0) {
 
 if ($exists == true) 
 {
-  header("Location: login.html?email=$em");
+  header("Location: ../login.html?email=$em");
 } 
 else 
 {
-  header("Location: register.html?email=$em");
+  header("Location:  ../register.html?email=$em");
 }

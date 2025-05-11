@@ -125,9 +125,9 @@ const Heroes = [
     { src: "hero_icons/abaddon_lg.jpg", hero: "abaddon" },
     { src: "hero_icons/abyssal_underlord_lg.jpg", hero: "abyssal_underlord" },
     { src: "hero_icons/alchemist_lg.jpg", hero: "alchemist" },
-  ];
+];
 
-  const Items = [
+const Items = [
     { src: "items/Blade_of_Alacrity_icon.png", item: "blade_of_alacrity" },
     { src: "items/Blades_of_Attack_icon.png", item: "blades_of_attack" },
     { src: "items/Blight_Stone_icon.png", item: "blight_stone" },
@@ -538,7 +538,7 @@ document.addEventListener('DOMContentLoaded', () =>
         if (btn) 
         {
             btn.textContent = 'Log out';
-            btn.href = 'logout.php';
+            btn.href = 'phpscripts/logout.php';
         }
     }
     const fullName = document.getElementById('userName');
@@ -551,4 +551,89 @@ document.addEventListener('DOMContentLoaded', () =>
         else
             fullName.textContent = "Hi there!"; 
     }   
-  });
+});
+
+// sorting stuff
+document.addEventListener('DOMContentLoaded', () => 
+{
+    const sortButtons = document.querySelectorAll('.sort-button');
+    const heroStatsGrid = document.getElementById('heroStatsGrid');
+    let currentSort = {
+        column: 'winrate', 
+        order: 'desc'   
+    };
+
+    function renderTable(heroes)
+    {
+        heroStatsGrid.innerHTML = ''; 
+
+        heroes.forEach(hero => 
+        {
+            const heroRow = document.createElement('div');
+            heroRow.classList.add('hero-row');
+
+            const formatStat = (value, isRate = false) => 
+            {
+                if (value === null ) 
+                    return '-';
+                let displayValue = parseFloat(value);
+                
+                return isRate ? `${displayValue.toFixed(1)}%` : displayValue;
+            };
+
+            heroRow.innerHTML = `
+                <div class="hero-cell hero-info">
+                    <img class="hero-img" src="${hero.image}" alt="${hero.name}">
+                    <span class="hero-name">${hero.name}</span>
+                </div>
+                <div class="hero-cell winrate">${formatStat(hero.winrate, true)}</div>
+                <div class="hero-cell matches">${formatStat(hero.matches)}</div>
+                <div class="hero-cell contest-rate">${formatStat(hero.contest_rate, true)}</div>
+                <div class="hero-cell d2pt-rating">${formatStat(hero.d2pt_rating)}</div>
+                <div class="hero-cell t-winrate">${formatStat(hero.t_winrate, true)}</div>
+                <div class="hero-cell t-matches">${formatStat(hero.t_matches)}</div>
+                <div class="hero-cell t-contest">${formatStat(hero.t_contest, true)}</div>
+                <div class="hero-cell t-rating">${formatStat(hero.t_rating)}</div>
+            `;
+            heroStatsGrid.appendChild(heroRow);
+        });
+    }
+
+    function fetchAndRenderHeroes(sortBy, sortOrder) 
+    {
+        const xhr = new XMLHttpRequest();
+        const url = `phpscripts/sort_heroes.php?sortBy=${sortBy}&sortOrder=${sortOrder}`;
+        
+        xhr.open('GET', url, true);
+
+        xhr.onload = function() 
+        {
+                const heroes = JSON.parse(xhr.responseText);
+                renderTable(heroes);
+        };
+
+        xhr.send();
+    }
+
+    if (sortButtons.length > 0 && heroStatsGrid) 
+    {
+        sortButtons.forEach(button => 
+        {
+            button.addEventListener('click', () =>
+            {
+                const sortColumn = button.dataset.sort;
+
+                if (currentSort.column === sortColumn)
+                {
+                    currentSort.order = currentSort.order === 'asc' ? 'desc' : 'asc';
+                } 
+                else 
+                {
+                    currentSort.column = sortColumn;
+                    currentSort.order = 'desc'; 
+                }
+                fetchAndRenderHeroes(currentSort.column, currentSort.order);
+            });
+        });
+    } 
+});

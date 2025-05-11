@@ -82,66 +82,207 @@
             </div>
         </header>
     
-    <main>
-    <section>
-        <div class="flex justify-center">
-            <div class="loginForm">
-                <p id="userName"> </p>     
-                <a href="join.html" class="loginButton">Join</a>
+    <main >
+        <section>
+            <div class="flex justify-center">
+                <div class="loginForm">
+                    <p id="userName"> </p>     
+                    <a href="join.html" class="loginButton">Join</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <div class="flex trivia flex-col overflow-hidden">
-            <img src="images/stratz_banner_1.webp" alt="">
-            <div class="guess-game">
-                <div class="grid build">
-                    <img src="items/Abyssal_Blade_icon.png" alt="" class="item-build">
-                    <img src="items/Aeon_Disk_icon.png" alt="" class="item-build">
-                    <img src="items/Aegis_of_the_Immortal_icon.png" alt="" class="item-build">
-                    <img src="items/Shadow_Amulet_icon.png" alt="" class="item-build">
-                    <img src="items/Quelling_Blade_icon.png" alt="" class="item-build">
-                    <img src="items/Boots_of_Speed_icon.png" alt="" class="item-build">
-                </div>
+        <div class="wrapper">
+            <div class="flex trivia flex-col overflow-hidden">
+                <img src="images/stratz_banner_1.webp" alt="">
+                <div class="guess-game">
+                    <div class="grid build">
+                        <img src="items/Abyssal_Blade_icon.png" alt="" class="item-build">
+                        <img src="items/Aeon_Disk_icon.png" alt="" class="item-build">
+                        <img src="items/Aegis_of_the_Immortal_icon.png" alt="" class="item-build">
+                        <img src="items/Shadow_Amulet_icon.png" alt="" class="item-build">
+                        <img src="items/Quelling_Blade_icon.png" alt="" class="item-build">
+                        <img src="items/Boots_of_Speed_icon.png" alt="" class="item-build">
+                    </div>
 
-                <div class="flex gap-1 justify-center">
-                    <button class="build-answer" data-hero="shadow demon">
-                        <img class="hero" src="hero_icons/shadow_demon_lg.jpg" alt="">
-                    </button>
+                    <div class="flex gap-1 justify-center">
+                        <button class="build-answer" data-hero="shadow demon">
+                            <img class="hero" src="hero_icons/shadow_demon_lg.jpg" alt="">
+                        </button>
 
-                    <button class="build-answer" data-hero="pudge">
-                        <img class="hero" src="hero_icons/nevermore_lg.jpg" alt="">
-                    </button>
+                        <button class="build-answer" data-hero="pudge">
+                            <img class="hero" src="hero_icons/nevermore_lg.jpg" alt="">
+                        </button>
 
-                    <button class="build-answer" data-hero="broodmother_lg">
-                        <img class="hero" src="hero_icons/pudge_lg.jpg" alt="">
-                    </button>
+                        <button class="build-answer" data-hero="broodmother_lg">
+                            <img class="hero" src="hero_icons/pudge_lg.jpg" alt="">
+                        </button>
 
-                    <button class="build-answer" data-hero="snapfire">
-                        <img class="hero" src="hero_icons/abyssal_underlord_lg.jpg" alt="">
-                    </button>
-                </div>
+                        <button class="build-answer" data-hero="snapfire">
+                            <img class="hero" src="hero_icons/abyssal_underlord_lg.jpg" alt="">
+                        </button>
+                    </div>
 
-                <span id="result-text" class="guess-hero-text">
-                    Guess The Hero
-                </span>
-                <span id="mmr" class="block text-center">
-                    that played with the shown Items in a 14167 MMR match.
-                </span>
-                <div class="flex justify-space-between">
-                    <span id="correct">
-                        ✅
+                    <span id="result-text" class="guess-hero-text">
+                        Guess The Hero
                     </span>
+                    <span id="mmr" class="block text-center">
+                        that played with the shown Items in a 14167 MMR match.
+                    </span>
+                    <div class="flex justify-space-between">
+                        <span id="correct">
+                            ✅
+                        </span>
+                        
+                        <span id="wrong">
+                            ❌
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-stats-container flex-col">
+                <div class="flex">
+                    <div class="sort-criteria">
+                        <button class="sort-button" data-sort="name">Hero </button>
+                    </div>
+
+                    <div class="sort-criteria">
+                        <button class="sort-button" data-sort="winrate">Winrate </button>
+                    </div>
+
+                    <div class="sort-criteria">
+                        <button class="sort-button" data-sort="matches">Matches </button>
+                    </div>
+
+                    <div class="sort-criteria">
+                        <button class="sort-button" data-sort="contest_rate">Contest Rate </button>
+                    </div>
+
+                    <div class="sort-criteria">
+                        <button class="sort-button" data-sort="d2pt_rating">D2PT Rating </button>
+                    </div>
+
+                    <div class="sort-criteria">
+                        <button class="sort-button" data-sort="t_winrate">T-Winrate </button>
+                    </div>
+
+                    <div class="sort-criteria">
+                        <button class="sort-button" data-sort="t_matches">T-matches </button>
+                    </div>
+
+                    <div class="sort-criteria">
+                        <button class="sort-button" data-sort="t_contest">T-Contest </button>
+                    </div>
+
+                    <div class="sort-criteria">
+                        <button class="sort-button" data-sort="t_rating">T-Rating </button>
+                    </div>
+                </div>
+
+                <div class="hero-stats-grid" id="heroStatsGrid">
+                    <!-- Lycan -->
+                    <div class="hero-row">
+                        <div class="hero-cell hero-info">
+                            <img class="hero-img" src="hero_icons/lycan_lg.jpg" alt="Lycan">
+                            <span class="hero-name">Lycan</span>
+                        </div>
+                        <div class="hero-cell winrate">61.4%</div>
+                        <div class="hero-cell matches">249</div>
+                        <div class="hero-cell contest-rate">9%</div>
+                        <div class="hero-cell d2pt-rating">3082</div>
+                        <div class="hero-cell t-winrate">-</div>
+                        <div class="hero-cell t-matches">0</div>
+                        <div class="hero-cell t-contest">0%</div>
+                        <div class="hero-cell t-rating">-</div>
+                    </div>
                     
-                    <span id="wrong">
-                        ❌
-                    </span>
+                    <!-- Chen -->
+                    <div class="hero-row">
+                        <div class="hero-cell hero-info">
+                            <img class="hero-img" src="hero_icons/chen_lg.jpg" alt="Chen">
+                            <span class="hero-name">Chen</span>
+                        </div>
+                        <div class="hero-cell winrate">61.1%</div>
+                        <div class="hero-cell matches">54</div>
+                        <div class="hero-cell contest-rate">6%</div>
+                        <div class="hero-cell d2pt-rating">-</div>
+                        <div class="hero-cell t-winrate">-</div>
+                        <div class="hero-cell t-matches">0</div>
+                        <div class="hero-cell t-contest">0%</div>
+                        <div class="hero-cell t-rating">-</div>
+                    </div>
+
+                    <!-- Elder Titan -->
+                    <div class="hero-row">
+                        <div class="hero-cell hero-info">
+                            <img class="hero-img" src="hero_icons/elder_titan_lg.jpg" alt="Elder Titan">
+                            <span class="hero-name">Elder Titan</span>
+                        </div>
+                        <div class="hero-cell winrate">56.6%</div>
+                        <div class="hero-cell matches">320</div>
+                        <div class="hero-cell contest-rate">8%</div>
+                        <div class="hero-cell d2pt-rating">3018</div>
+                        <div class="hero-cell t-winrate">66.7%</div>
+                        <div class="hero-cell t-matches">3</div>
+                        <div class="hero-cell t-contest">22%</div>
+                        <div class="hero-cell t-rating">3045</div>
+                    </div>
+
+                    <!-- Io -->
+                    <div class="hero-row">
+                        <div class="hero-cell hero-info">
+                            <img class="hero-img" src="hero_icons/wisp_lg.jpg" alt="Io">
+                            <span class="hero-name">Io</span>
+                        </div>
+                        <div class="hero-cell winrate">56.0%</div>
+                        <div class="hero-cell matches">182</div>
+                        <div class="hero-cell contest-rate">8%</div>
+                        <div class="hero-cell d2pt-rating">3028</div>
+                        <div class="hero-cell t-winrate">-</div>
+                        <div class="hero-cell t-matches">0</div>
+                        <div class="hero-cell t-contest">0%</div>
+                        <div class="hero-cell t-rating">-</div>
+                    </div>
+
+                    <!-- Clinkz -->
+                    <div class="hero-row">
+                        <div class="hero-cell hero-info">
+                            <img class="hero-img" src="hero_icons/clinkz_lg.jpg" alt="Clinkz">
+                            <span class="hero-name">Clinkz</span>
+                        </div>
+                        <div class="hero-cell winrate">55.0%</div>
+                        <div class="hero-cell matches">607</div>
+                        <div class="hero-cell contest-rate">10%</div>
+                        <div class="hero-cell d2pt-rating">3065</div>
+                        <div class="hero-cell t-winrate">100.0%</div>
+                        <div class="hero-cell t-matches">1</div>
+                        <div class="hero-cell t-contest">6%</div>
+                        <div class="hero-cell t-rating">3034</div>
+                    </div>
+                    
+                    <!-- Winter Wyvern -->
+                    <div class="hero-row">
+                        <div class="hero-cell hero-info">
+                            <img class="hero-img" src="hero_icons/winter_wyvern_lg.jpg" alt="Winter Wyvern">
+                            <span class="hero-name">Winter Wyvern</span>
+                        </div>
+                        <div class="hero-cell winrate">54.2%</div>
+                        <div class="hero-cell matches">568</div>
+                        <div class="hero-cell contest-rate">11%</div>
+                        <div class="hero-cell d2pt-rating">3019</div>
+                        <div class="hero-cell t-winrate">-</div>
+                        <div class="hero-cell t-matches">0</div>
+                        <div class="hero-cell t-contest">0%</div>
+                        <div class="hero-cell t-rating">-</div>
+                    </div>
                 </div>
-            </div>
+            </div> 
         </div>
-        
-    </section>
+
+    </main>
+
+
     </main>
     <script src="script.js"></script>
 </body>
