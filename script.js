@@ -562,6 +562,19 @@ document.addEventListener('DOMContentLoaded', () =>
         order: 'desc'   
     };
 
+    function formatStat(value, isPercent) 
+    {
+        if (value === null) {
+            return '-';
+        }
+
+        if (isPercent) {
+            return value.toFixed(1) + '%';
+        }
+        
+        return value;
+    }
+
     function renderTable(heroes)
     {
         heroStatsGrid.innerHTML = ''; 
@@ -570,16 +583,7 @@ document.addEventListener('DOMContentLoaded', () =>
         {
             const heroRow = document.createElement('div');
             heroRow.classList.add('hero-row');
-
-            const formatStat = (value, isRate = false) => 
-            {
-                if (value === null ) 
-                    return '-';
-                let displayValue = parseFloat(value);
-                
-                return isRate ? `${displayValue.toFixed(1)}%` : displayValue;
-            };
-
+  
             heroRow.innerHTML = `
                 <div class="hero-cell hero-info">
                     <img class="hero-img" src="${hero.image}" alt="${hero.name}">
@@ -598,11 +602,11 @@ document.addEventListener('DOMContentLoaded', () =>
         });
     }
 
-    function fetchAndRenderHeroes(sortBy, sortOrder) 
+    function getSortedHeroes(sortBy, sortOrder) 
     {
         const xhr = new XMLHttpRequest();
-        const url = `phpscripts/sort_heroes.php?sortBy=${sortBy}&sortOrder=${sortOrder}`;
-        
+        const url = 'phpscripts/sort_heroes.php?sortBy=' + sortBy + '&sortOrder=' + sortOrder;
+       
         xhr.open('GET', url, true);
 
         xhr.onload = function() 
@@ -631,7 +635,7 @@ document.addEventListener('DOMContentLoaded', () =>
                     currentSort.column = sortColumn;
                     currentSort.order = 'desc'; 
                 }
-                fetchAndRenderHeroes(currentSort.column, currentSort.order);
+                getSortedHeroes(currentSort.column, currentSort.order);
             });
         });
     } 
